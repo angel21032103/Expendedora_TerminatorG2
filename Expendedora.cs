@@ -11,7 +11,27 @@ namespace Expendedora_TerminatorG2
 
         private string marca;
         private ushort cantproductos;
+        private byte temperatura;
         private float precio;
+
+        #endregion
+
+        #region Propieades
+        public byte Temperatura { 
+            get => temperatura;    //limites de lectura  
+            set                    //limites de escritura 
+            {
+                if (0 < value &&  value < 25)
+                    temperatura = value;
+                else
+                    temperatura = 20;
+            }
+                
+        
+        
+        }
+
+
         #endregion
 
         #region Metodos
@@ -72,9 +92,18 @@ namespace Expendedora_TerminatorG2
 
         public Expendedora(bool Mantenimiento)
         {
-            if(Mantenimiento==true)
+            Temperatura = 1;
 
+            if(Mantenimiento==true)
             Console.WriteLine("Entrando en modo mantenimiento");
+            
+            Console.WriteLine("Cambiando temperatua");
+            LimpiarDisplay();
+            for(int i=0; i< 20; i++)
+            {
+                Temperatura++;
+            }
+            Console.WriteLine("Mostramdo Temperatura {0} [°C]", Temperatura);
 
         }
 
