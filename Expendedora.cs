@@ -70,6 +70,14 @@ namespace Expendedora_TerminatorG2
 
         }
 
+        public Expendedora(bool Mantenimiento)
+        {
+            if(Mantenimiento==true)
+
+            Console.WriteLine("Entrando en modo mantenimiento");
+
+        }
+
         #endregion
     }
 }
